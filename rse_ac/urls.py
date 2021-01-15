@@ -19,13 +19,14 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('events/', include('events.urls')),
+    path('', include('base.urls')),
 ]
 
 # ONLY FOR DEVELOPMENT! REMOVE IN PRODUCTION!
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
-urlpatterns += [
-    path('', RedirectView.as_view(url='events/', permanent=True)),
-]
+# urlpatterns += [
+#     path('', RedirectView.as_view(url='events/', permanent=True)),
+# ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
