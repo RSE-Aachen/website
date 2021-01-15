@@ -2,7 +2,75 @@
 
 {% block title %}RSE_AC: Events{% endblock title %}
 
-
 {% block content %}
-    <h1> This is the events page! </h1>
+    <h1> Eventkalender </h1>
+
+    <p>
+        Hier findest du alle Infos zu aktuellen und vergangenen Veranstaltungen 
+        zum Thema RSE im Raum Aachen und Umgebung. Solltest du ein Event vermissen oder
+        selbst eines planen, welches wir hier veröffentlichen sollen, dann schreib uns
+        einfach eine kurze <a href="mailto:">mail</a>.
+    </p>
+
+    <h3>Aktuelle Events</h3>
+    <table>
+        <tr>
+            <th>Datum</th>
+            <th>Titel</th>
+            <th>Uhrzeit</th>
+            <th>Veranstaltungsort</th>
+            <th>Veranstalter</th>
+        </tr>
+
+        {% for event in upcomming_events %}
+            <tr>
+                <td>{{ event.date }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.time }}</td>
+                <td>{{ event.location }}</td>
+                {% if event.event_host.weblink %}
+                <td>
+                    <a href="{{ event.event_host.weblink }}" target="_blank">
+                        {{ event.event_host.name }}
+                    </a>
+                </td>
+                {% else %}
+                <td>
+                    {{ event.event_host.name }}
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Vergangene Events</h3>
+    <table>
+        <tr>
+            <th>Datum</th>
+            <th>Titel</th>
+            <th>Uhrzeit</th>
+            <th>Veranstaltungsort</th>
+            <th>Veranstalter</th>
+        </tr>
+
+        {% for event in past_events %}
+            <tr>
+                <td>{{ event.date }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.time }}</td>
+                <td>{{ event.location }}</td>
+                {% if event.event_host.weblink %}
+                <td>
+                    <a href="{{ event.event_host.weblink }}" target="_blank">
+                        {{ event.event_host.name }}
+                    </a>
+                </td>
+                {% else %}
+                <td>
+                    {{ event.event_host.name }}
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock content %}
