@@ -12,7 +12,7 @@
         einfach eine kurze <a href="mailto:">mail</a>.
     </p>
 
-    <h3>Aktuelle Events</h3>
+    <h3>Lokale Events</h3>
     <table>
         <tr>
             <th>Datum</th>
@@ -22,7 +22,7 @@
             <th>Veranstalter</th>
         </tr>
 
-        {% for event in upcomming_events %}
+        {% for event in local_upcomming_events %}
             <tr>
                 <td>{{ event.date }}</td>
                 <td>{{ event.title }}</td>
@@ -43,7 +43,7 @@
         {% endfor %}
     </table>
 
-    <h3>Vergangene Events</h3>
+    <h3>Überregionale Events</h3>
     <table>
         <tr>
             <th>Datum</th>
@@ -53,7 +53,7 @@
             <th>Veranstalter</th>
         </tr>
 
-        {% for event in past_events %}
+        {% for event in non_local_upcomming_events %}
             <tr>
                 <td>{{ event.date }}</td>
                 <td>{{ event.title }}</td>

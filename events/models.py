@@ -1,6 +1,7 @@
 from django.db import models
 
 class Event(models.Model):
+    is_local = models.BooleanField(default=True, help_text='Is this a local event?')
     title = models.CharField(max_length=30, help_text='Title of the event.')
     date = models.DateField(help_text='Date of the event.')
     time = models.TimeField(help_text='Time of the event.')

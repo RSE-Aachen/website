@@ -4,14 +4,14 @@ from datetime import date
 
 def events(request):
 
-    all_events = Event.objects.all()
-    upcomming_events = Event.objects.filter(date__gte=date.today())
-    past_events = Event.objects.filter(date__lt=date.today())
+    local_events = Event.objects.filter(is_local=True)
+    nonlocal_events = Event.objects.filter(is_local=False)
+    local_upcomming_events = local_events.filter(date__gte=date.today())
+    nonlocal_upcomming_events = nonlocal_events.filter(date__gte=date.today())
 
     context = {
-        'all_events': all_events,
-        'upcomming_events': upcomming_events,
-        'past_events': past_events
+        'local_upcomming_events': local_upcomming_events,
+        'non_local_upcomming_events': nonlocal_upcomming_events,
     }
 
     return render(request, 'events.html', context=context)
