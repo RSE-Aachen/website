@@ -17,7 +17,8 @@
         <tr>
             <th>Datum</th>
             <th>Titel</th>
-            <th>Uhrzeit</th>
+            <th>Von</th>
+            <th>Bis</th>
             <th>Veranstaltungsort</th>
             <th>Veranstalter</th>
         </tr>
@@ -25,8 +26,17 @@
         {% for event in local_upcomming_events %}
             <tr>
                 <td>{{ event.date }}</td>
-                <td>{{ event.title }}</td>
-                <td>{{ event.time }}</td>
+                {% if event.weblink %}
+                    <td>
+                        <a href="{{ event.weblink }}" target="_blank">
+                            {{ event.title }}
+                        </a>
+                    </td>
+                {% else %}
+                    <td>{{ event.title }}</td>
+                {% endif %}
+                <td>{{ event.start_time }}</td>
+                <td>{{ event.end_time }}</td>
                 <td>{{ event.location }}</td>
                 {% if event.event_host.weblink %}
                 <td>
@@ -48,7 +58,8 @@
         <tr>
             <th>Datum</th>
             <th>Titel</th>
-            <th>Uhrzeit</th>
+            <th>Von</th>
+            <th>Bis</th>
             <th>Veranstaltungsort</th>
             <th>Veranstalter</th>
         </tr>
@@ -56,8 +67,17 @@
         {% for event in non_local_upcomming_events %}
             <tr>
                 <td>{{ event.date }}</td>
-                <td>{{ event.title }}</td>
-                <td>{{ event.time }}</td>
+                {% if event.weblink %}
+                    <td>
+                        <a href="{{ event.weblink }}" target="_blank">
+                            {{ event.title }}
+                        </a>
+                    </td>
+                {% else %}
+                    <td>{{ event.title }}</td>
+                {% endif %}
+                <td>{{ event.start_time }}</td>
+                <td>{{ event.end_time }}</td>
                 <td>{{ event.location }}</td>
                 {% if event.event_host.weblink %}
                 <td>
