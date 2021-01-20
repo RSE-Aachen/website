@@ -13,6 +13,10 @@ img.navbar{
     font-size: 1.35rem !important;
 }
 
+.navbar-nav li a{
+    color: grey;
+}
+
 .banner{
     background-color: rgb(151,49,110);
 }
@@ -22,7 +26,7 @@ img.navbar{
     padding-bottom: 0.8em;
 }
 
-body {
+ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
@@ -30,5 +34,9 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+    background-color: rgb(151,49,110);
+}
+
+.btn{
     background-color: rgb(151,49,110);
 }
