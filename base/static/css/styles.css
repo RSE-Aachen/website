@@ -30,6 +30,10 @@ img.navbar{
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+.container-fluid.content{
+    margin: 10em;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

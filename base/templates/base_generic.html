@@ -30,19 +30,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{% url 'base:index' %}">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Events</a>
+                    <a class="nav-link" href="{% url 'events:index'%}">Events</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Get active</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{% url 'base:contact' %}">Contact</a>
                 </li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
     </nav>
 
     <!-- Content -->
-    <div class="container-fluid">
+    <div class="container-fluid w-75">
         {% block content %} <!-- default content text --> {% endblock %}
     </div>
 
@@ -59,7 +59,7 @@
         <div class="container-fluid vertical-padding">
             <div class="row">
                 <div class="col-md-6 text-md-left text-xs-center text-light">
-                    &copy; 2021 - Lukas Lamm
+                    &copy; 2021 de-RSE e.V. Chapter Aachen
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <button type="button" class="btn btn-sm text-light" data-toggle="modal" data-target="#">
